@@ -9,10 +9,15 @@ using Tasks.Models;
 
 namespace Tasks.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("")]
     [ApiController]
-    public class TodoItemsController : ControllerBase
+    public class TodoItemsController : Controller
     {
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         private readonly TodoContext _context;
 
         public TodoItemsController(TodoContext context)
@@ -119,5 +124,6 @@ namespace Tasks.Controllers
         {
             return (_context.TodoItems?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
     }
 }

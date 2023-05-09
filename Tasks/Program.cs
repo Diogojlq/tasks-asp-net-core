@@ -2,8 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Tasks.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
+builder.Services.AddRazorPages();
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<TodoContext>(opt =>
@@ -26,5 +25,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapRazorPages();
 
 app.Run();
